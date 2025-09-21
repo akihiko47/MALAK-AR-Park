@@ -7,7 +7,7 @@
   margin: auto;
   width: 50%;
   height: 35%;
-  background-color: rgba(25, 25, 35, 0.55);
+  background-color: rgba(25, 25, 35, 0.45);
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -16,14 +16,14 @@
   z-index: 999;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-sizing: border-box;
   font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
 }
 
 #custom-scanning-overlay.hidden {
-        display: none;
+    display: none;
 }
 
 .scanning-content {
