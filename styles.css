@@ -1,12 +1,13 @@
-#custom-scanning-overlay {
+#custom-scanning-text {
   position: absolute;
-  top: 0;
+  padding: 15px;
+  top: 45%;
   bottom: 0;
   left: 0;
   right: 0;
   margin: auto;
-  width: 50%;
-  height: 35%;
+  width: 80%;
+  height: 25%;
   background-color: rgba(25, 25, 35, 0.45);
   display: flex;
   justify-content: center;
@@ -24,6 +25,42 @@
 
 #custom-scanning-overlay.hidden {
     display: none;
+}
+
+.scanner {
+  position: absolute;
+  top: -20%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 80%;
+  height: 30%;
+  background-color: rgba(25, 25, 35, 0.0);
+  border: 2px dashed rgba(255, 255, 255, 0.45);
+  border-radius: 20px;
+  border-radius: 10px;
+}
+
+.scanner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.45), 0 0 20px rgba(255, 255, 255, 0.45);
+  animation: scan 2s linear infinite;
+}
+
+@keyframes scan {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: 100%;
+  }
 }
 
 .scanning-content {
