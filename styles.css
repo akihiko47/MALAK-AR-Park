@@ -1,13 +1,13 @@
 #custom-scanning-text {
   position: absolute;
-  padding: 15px;
+  padding: 20px;
   top: 45%;
   bottom: 0;
   left: 0;
   right: 0;
   margin: auto;
   width: 80%;
-  height: 25%;
+  height: 20%;
   background-color: rgba(25, 25, 35, 0.45);
   display: flex;
   justify-content: center;
@@ -66,6 +66,8 @@
 .scanning-content {
   text-align: center;
   width: 100%;
+  justify-content: center;
+  flex-direction: column;
 }
 
 #custom-scanning-overlay h1 {
@@ -82,34 +84,6 @@
   margin-bottom: 30px;
   color: #e0e0e0;
   font-weight: 400;
-}
-
-.scanning-animation {
-  width: 80%;
-  height: 4px;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 2px;
-  position: relative;
-  overflow: hidden;
-  margin: 0 auto;
-}
-
-.scan-line {
-  position: absolute;
-  height: 100%;
-  width: 50%;
-  background: linear-gradient(90deg, transparent, #ffffff, transparent);
-  animation: scanning 2s infinite ease-in-out;
-  border-radius: 2px;
-}
-
-@keyframes scanning {
-  0% {
-    left: -50%;
-  }
-  100% {
-    left: 100%;
-  }
 }
 
 @media (max-width: 480px) {
