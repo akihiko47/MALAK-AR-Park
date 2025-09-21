@@ -5,11 +5,9 @@
   left: 0;
   right: 0;
   margin: auto;
-  width: 70%;
-  max-width: 400px;
-  height: 50%;
-  min-height: 280px;
-  background-color: rgba(25, 25, 35, 0.95);
+  width: 50%;
+  height: 35%;
+  background-color: rgba(25, 25, 35, 0.55);
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -20,9 +18,12 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 20px;
   box-sizing: border-box;
   font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+}
+
+#custom-scanning-overlay.hidden {
+        display: none;
 }
 
 .scanning-content {
