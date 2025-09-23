@@ -16,7 +16,7 @@
   </head>
    
       <a-assets>
-        <a-asset-item a-asset-item id="car" src="models/car/scene.gltf"></a-asset-item>
+        <a-asset-item a-asset-item id="scene1" src="models/scene1/scene1.gltf"></a-asset-item>
       </a-assets>
       
       <div id="custom-scanning-overlay" class="hidden">
@@ -32,10 +32,10 @@
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
       <a-entity mindar-image-target="targetIndex: 0">
         <a-gltf-model 
-            rotation="0 0 0 " 
-            position="-0.2 -0.15 0.1" 
-            scale="1.005 1.005 1.005" 
-            src="#car"
+            rotation="15 0 0" 
+            position="0 -0.15 0" 
+            scale="0.2 0.2 0.2" 
+            src="#scene1"
             animation-mixer>
         </a-gltf-model>
       </a-entity>
