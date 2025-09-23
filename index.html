@@ -40,5 +40,49 @@
         </a-gltf-model>
       </a-entity>
     </a-scene>
+
+    <div id="photoModal">
+      <img id="capturedPhoto" src="" alt="Фото" />
+      <div>
+        <button id="saveBtn">Сохранить в галерею</button>
+        <button id="backBtn">Назад</button>
+      </div>
+    </div>
+
+    <button id="photoBtn" title="Сделать фото"></button>
+
+    <script>
+      const photoBtn = document.getElementById('photoBtn');
+      const photoModal = document.getElementById('photoModal');
+      const capturedPhoto = document.getElementById('capturedPhoto');
+      const saveBtn = document.getElementById('saveBtn');
+      const backBtn = document.getElementById('backBtn');
+      const scanOverlay = document.getElementById('custom-scanning-overlay');
+
+      photoBtn.addEventListener('click', () => {
+        const scene = document.querySelector('a-scene');
+        const canvas = scene.renderer.domElement;
+        const dataURL = canvas.toDataURL('image/png');
+
+        capturedPhoto.src = dataURL;
+        photoModal.style.display = 'flex';
+        photoBtn.style.display = 'none';
+        scanOverlay.style.display = 'none';
+      });
+
+      saveBtn.addEventListener('click', () => {
+        const a = document.createElement('a');
+        a.href = capturedPhoto.src;
+        a.download = 'photo-ar.png';
+        a.click();
+      });
+
+      backBtn.addEventListener('click', () => {
+        photoModal.style.display = 'none';
+        capturedPhoto.src = '';
+        photoBtn.style.display = 'block';
+        scanOverlay.style.display = 'block';
+      });
+  </script>
   </body>
 </html>
