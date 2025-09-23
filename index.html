@@ -60,9 +60,29 @@
       const scanOverlay = document.getElementById('custom-scanning-overlay');
 
       photoBtn.addEventListener('click', () => {
-        const scene = document.querySelector('a-scene');
-        const canvas = scene.renderer.domElement;
-        const dataURL = canvas.toDataURL('image/png');
+        const video = document.querySelector("video");
+        const canvas = document.createElement("canvas");
+        video.pause();
+
+        const style = window.getComputedStyle(video),
+          width = parseFloat(style.getPropertyValue('width')),
+          height = parseFloat(style.getPropertyValue('height')),
+          top = parseFloat(style.getPropertyValue('top')),
+          left = parseFloat(style.getPropertyValue('left'));
+
+        const imgLeft = left * video.videoWidth / width
+        const imgTop = top * video.videoHeight / height
+        const drawLeft = imgLeft > 0 ? 0 : imgLeft
+        const drawTop = imgTop > 0 ? 0 : imgTop
+        const drawWidth = video.videoWidth
+        const drawHeight = video.videoHeight
+        canvas.width = video.videoWidth + imgLeft * 2
+        canvas.height = video.videoHeight + imgTop * 2
+
+        canvas.getContext('2d').drawImage(video, drawLeft, drawTop, drawWidth, drawHeight);
+        video.pause();
+
+        const dataURL = canvas.toDataURL('image/jpeg'); // Or 'image/jpeg'
 
         capturedPhoto.src = dataURL;
         photoModal.style.display = 'flex';
