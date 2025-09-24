@@ -155,3 +155,8 @@
   background-color: #dc3545;
   color: white;
 }
+
+a-scene { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
+#photoModal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; background: black; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+#capturedPhoto { max-width: 100%; max-height: 80%; object-fit: contain; }
+#photoBtn { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 3; }
