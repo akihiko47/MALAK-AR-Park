@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <a-scene mindar-image="imageTargetSrc: ./targets.mind; filterMinCF:0.0001; filterBeta: 0.001; warmupTolerance: 3; missTolerance: 1; uiScanning: #custom-scanning-overlay" xr-mode-ui="enabled: false">
+    <a-scene mindar-image="imageTargetSrc: ./targets-night.mind; filterMinCF:0.0001; filterBeta: 0.001; warmupTolerance: 3; missTolerance: 1; uiScanning: #custom-scanning-overlay" xr-mode-ui="enabled: false">
         <a-assets>
             <a-asset-item id="scene1" src="models/scene1/scene1.gltf"></a-asset-item>
             <a-asset-item id="scene2" src="models/scene2/scene2.gltf"></a-asset-item>
@@ -32,6 +32,29 @@
         
         <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
+        <!-- Scene1 LL Night -->
+        <a-entity mindar-image-target="targetIndex: 0">
+            <a-gltf-model 
+                rotation="15 -30 0" 
+                position="0 -0.15 0" 
+                scale="0.1 0.1 0.1" 
+                src="#scene1"
+                animation-mixer>
+            </a-gltf-model>
+        </a-entity>
+
+        <!-- Scene1 L Night -->
+        <a-entity mindar-image-target="targetIndex: 1">
+            <a-gltf-model 
+                rotation="15 -15 0" 
+                position="0 -0.15 0" 
+                scale="0.1 0.1 0.1" 
+                src="#scene1"
+                animation-mixer>
+            </a-gltf-model>
+        </a-entity>
+
+        <!-- Scene1 M Night -->
         <a-entity mindar-image-target="targetIndex: 2">
             <a-gltf-model 
                 rotation="15 0 0" 
@@ -42,9 +65,78 @@
             </a-gltf-model>
         </a-entity>
 
+        <!-- Scene1 R Night -->
+        <a-entity mindar-image-target="targetIndex: 3">
+            <a-gltf-model 
+                rotation="15 15 0" 
+                position="0 -0.15 0" 
+                scale="0.1 0.1 0.1" 
+                src="#scene1"
+                animation-mixer>
+            </a-gltf-model>
+        </a-entity>
+
+        <!-- Scene1 RR Night -->
+        <a-entity mindar-image-target="targetIndex: 4">
+            <a-gltf-model 
+                rotation="15 30 0" 
+                position="0 -0.15 0" 
+                scale="0.1 0.1 0.1" 
+                src="#scene1"
+                animation-mixer>
+            </a-gltf-model>
+        </a-entity>
+
+
+
+        <!-- Scene2 LL Night -->
+        <a-entity mindar-image-target="targetIndex: 5">
+            <a-gltf-model 
+                rotation="15 -30 0" 
+                position="0 -0.15 0" 
+                scale="0.1 0.1 0.1" 
+                src="#scene2"
+                animation-mixer>
+            </a-gltf-model>
+        </a-entity>
+
+        <!-- Scene2 L Night -->
+        <a-entity mindar-image-target="targetIndex: 6">
+            <a-gltf-model 
+                rotation="15 -15 0" 
+                position="0 -0.15 0" 
+                scale="0.1 0.1 0.1" 
+                src="#scene2"
+                animation-mixer>
+            </a-gltf-model>
+        </a-entity>
+
+        <!-- Scene2 M Night -->
         <a-entity mindar-image-target="targetIndex: 7">
             <a-gltf-model 
                 rotation="15 0 0" 
+                position="0 -0.15 0" 
+                scale="0.1 0.1 0.1" 
+                src="#scene2"
+                animation-mixer>
+            </a-gltf-model>
+        </a-entity>
+
+        <!-- Scene2 R Night -->
+        <a-entity mindar-image-target="targetIndex: 8">
+            <a-gltf-model 
+                rotation="15 15 0" 
+                position="0 -0.15 0" 
+                scale="0.1 0.1 0.1" 
+                src="#scene2"
+                animation-mixer>
+            </a-gltf-model>
+        </a-entity>
+
+        <!-- Scene2 RR Night -->
+        <a-entity mindar-image-target="targetIndex: 9">
+            <a-gltf-model 
+                rotation="15 30 0" 
                 position="0 -0.15 0" 
                 scale="0.1 0.1 0.1" 
                 src="#scene2"
