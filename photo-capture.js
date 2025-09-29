@@ -197,3 +197,21 @@ document.addEventListener('DOMContentLoaded', () => {
 console.log('DOM loaded, initializing ARPhotoCapture');
 window.photoCapture = new ARPhotoCapture();
 });
+
+
+window.addEventListener("DOMContentLoaded", () => {
+    const hour = new Date().getHours();
+    
+    const isNight = (hour >= 18 || hour < 6);
+    const targetFile = isNight ? "targets-night.mind" : "targets-day.mind";
+
+    const scene = document.querySelector('a-scene');
+    
+    if (scene) {  
+        scene.setAttribute(
+        "mindar-image",
+        `imageTargetSrc: ./${targetFile}; filterMinCF:0.0001; filterBeta:0.001; warmupTolerance:3; missTolerance:1; uiScanning:#custom-scanning-overlay`
+        );
+        console.log("Выбран файл:", targetFile);
+    }
+});
