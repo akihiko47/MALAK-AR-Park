@@ -99,8 +99,8 @@ async capturePhoto() {
         const isPortrait = window.innerHeight > window.innerWidth;
         const screenAspect = window.innerWidth / window.innerHeight;
 
-        combinedCanvas.width = window.innerWidth;
-        combinedCanvas.height = window.innerHeight;
+        combinedCanvas.width = 1080;
+        combinedCanvas.height = 1920;
 
         console.log('Canvas dimensions set to screen:', combinedCanvas.width, combinedCanvas.height, 'Is portrait:', isPortrait);
 
