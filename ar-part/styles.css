@@ -1,0 +1,162 @@
+#custom-scanning-text {
+  position: absolute;
+  padding: 15px;
+  top: 45%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 80%;
+  height: 20%;
+  background-color: rgba(25, 25, 35, 0.45);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  z-index: 999;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-sizing: border-box;
+  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+}
+
+#custom-scanning-overlay.hidden {
+    display: none;
+}
+
+.scanner {
+  position: absolute;
+  top: -20%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 80%;
+  height: 30%;
+  background-color: rgba(25, 25, 35, 0.0);
+  border: 2px dashed rgba(255, 255, 255, 0.45);
+  border-radius: 20px;
+}
+
+.scanner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.45), 0 0 20px rgba(255, 255, 255, 0.45);
+  animation: scan 2s linear infinite;
+}
+
+@keyframes scan {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+.scanning-content {
+  margin: auto;
+  text-align: center;
+  width: 100%;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#custom-scanning-overlay h1 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+#custom-scanning-overlay p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  color: #e0e0e0;
+  font-weight: 400;
+}
+
+@media (max-width: 480px) {
+  #custom-scanning-overlay {
+    width: 90%;
+    min-height: 250px;
+    padding: 15px;
+  }
+  
+  #custom-scanning-overlay h1 {
+    font-size: 24px;
+  }
+  
+  #custom-scanning-overlay p {
+    font-size: 14px;
+  }
+}
+
+#photoBtn {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 70px;
+  background: white;
+  border: 4px solid black;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 0 8px rgba(0,0,0,0.3);
+  transition: transform 0.2s ease;
+}
+#photoBtn:active {
+  transform: translateX(-50%) scale(0.9);
+  box-shadow: 0 0 4px rgba(0,0,0,0.2);
+}
+
+#photoModal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 20;
+}
+#photoModal img {
+  max-width: 90vw;
+  max-height: 70vh;
+  border: 4px solid white;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+#photoModal button {
+  margin: 5px;
+  padding: 10px 25px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+#saveBtn {
+  background-color: #28a745;
+  color: white;
+}
+#backBtn {
+  background-color: #dc3545;
+  color: white;
+}
+
+a-scene { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
+#photoModal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; background: black; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+#capturedPhoto { max-width: 100%; max-height: 80%; object-fit: contain; }
+#photoBtn { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 3; }
