@@ -9,12 +9,11 @@
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@6.1.0/dist/aframe-extras.min.js"></script>
 
-    <script src="photo-capture.js"></script>
-
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <a-scene mindar-image="imageTargetSrc: ./targets-night.mind; filterMinCF:0.0001; filterBeta: 0.001; warmupTolerance: 3; missTolerance: 1; uiScanning: #custom-scanning-overlay" xr-mode-ui="enabled: false">
+        <script src="photo-capture.js"></script>
         <a-assets>
             <a-asset-item id="scene1" src="models/scene1/scene1.gltf"></a-asset-item>
             <a-asset-item id="scene2" src="models/scene2/scene2.gltf"></a-asset-item>
