@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <a-scene mindar-image="imageTargetSrc: ./targets-night.mind; filterMinCF:0.0001; filterBeta: 0.001; warmupTolerance: 3; missTolerance: 1; uiScanning: #custom-scanning-overlay" xr-mode-ui="enabled: false">
+    <a-scene mindar-image="imageTargetSrc: ./targets-night.mind; filterMinCF:0.0001; filterBeta: 0.001; warmupTolerance: 3; missTolerance: 1; uiScanning: #custom-scanning-overlay; video: {width: {ideal: 1920}, height: {ideal: 1080}}" xr-mode-ui="enabled: false">
         <script src="photo-capture.js"></script>
         <a-assets>
             <a-asset-item id="scene1" src="models/scene1/scene1.gltf"></a-asset-item>
