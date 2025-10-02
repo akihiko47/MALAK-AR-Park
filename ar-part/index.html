@@ -10,9 +10,61 @@
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@6.1.0/dist/aframe-extras.min.js"></script>
 
     <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        /* Улучшение качества рендеринга */
+        .a-canvas {
+            width: 100% !important;
+            height: 100% !important;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+        }
+        
+        video {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: #000;
+        }
+    </style>
 </head>
 <body>
-    <a-scene mindar-image="imageTargetSrc: ./targets-night.mind; filterMinCF:0.0001; filterBeta: 0.001; warmupTolerance: 3; missTolerance: 1; uiScanning: #custom-scanning-overlay; resolution: 1920; video: {width: {ideal: 4096, min: 1920}, height: {ideal: 2160, min: 1920}}" xr-mode-ui="enabled: false">
+    <a-scene 
+        mindar-image="
+            imageTargetSrc: ./targets-night.mind; 
+            filterMinCF: 0.0001; 
+            filterBeta: 0.001; 
+            warmupTolerance: 3; 
+            missTolerance: 1; 
+            uiScanning: #custom-scanning-overlay; 
+            resolution: 1920; 
+            maxTrack: 1;
+            video: {
+                width: {ideal: 3840, min: 1920, max: 3840},
+                height: {ideal: 2160, min: 1080, max: 2160},
+                frameRate: {ideal: 60, min: 30},
+                facingMode: 'environment',
+                aspectRatio: {ideal: 16/9},
+                resizeMode: 'crop-and-scale'
+            }" 
+        xr-mode-ui="enabled: false"
+        renderer="
+            colorManagement: true;
+            precision: high;
+            antialias: true;
+            anisotropy: 16;
+            physicallyCorrectLights: true;
+            sortObjects: true;
+            powerPreference: high-performance"
+        stats="false"
+        background="color: #000000">
+        
         <script src="photo-capture.js"></script>
         <a-assets>
             <a-asset-item id="scene1" src="models/scene1/scene1.gltf"></a-asset-item>
@@ -29,7 +81,11 @@
             </div>
         </div>
         
-        <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+        <a-camera 
+            position="0 0 0" 
+            look-controls="enabled: false"
+            wasd-controls="enabled: false">
+        </a-camera>
 
         <!-- Scene1 M Night -->
         <a-entity mindar-image-target="targetIndex: 0">
@@ -38,7 +94,9 @@
                 position="0 -0.3 0" 
                 scale="0.1 0.1 0.1" 
                 src="#scene1"
-                animation-mixer>
+                animation-mixer
+                shadow="receive: true"
+                render-order="1">
             </a-gltf-model>
         </a-entity>
 
@@ -49,7 +107,9 @@
                 position="0 -0.15 0" 
                 scale="0.1 0.1 0.1" 
                 src="#scene2"
-                animation-mixer>
+                animation-mixer
+                shadow="receive: true"
+                render-order="1">
             </a-gltf-model>
         </a-entity>
     </a-scene>
@@ -64,5 +124,54 @@
     </div>
 
     <button id="photoBtn" title="Take Photo"></button>
+    
+    <script>
+        // Дополнительная инициализация для максимального качества
+        document.addEventListener('DOMContentLoaded', function() {
+            const scene = document.querySelector('a-scene');
+            
+            scene.addEventListener('loaded', function() {
+                console.log('A-Frame scene loaded with high quality settings');
+                
+                // Принудительный рендеринг в высоком качестве
+                if (scene.renderer) {
+                    const renderer = scene.renderer;
+                    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+                    console.log('Renderer pixel ratio:', renderer.getPixelRatio());
+                }
+            });
+        });
+        
+        // Автоматическое определение дня/ночи
+        window.addEventListener("DOMContentLoaded", () => {
+            const hour = new Date().getHours();
+            const isNight = (hour >= 18 || hour < 6);
+            const targetFile = isNight ? "targets-night.mind" : "targets-day.mind";
+
+            const scene = document.querySelector('a-scene');
+            
+            if (scene) {  
+                scene.setAttribute(
+                    "mindar-image",
+                    `imageTargetSrc: ./${targetFile}; 
+                     filterMinCF: 0.0001; 
+                     filterBeta: 0.001; 
+                     warmupTolerance: 3; 
+                     missTolerance: 1; 
+                     uiScanning: #custom-scanning-overlay; 
+                     resolution: 1920; 
+                     maxTrack: 1;
+                     video: {
+                         width: {ideal: 3840, min: 1920, max: 3840},
+                         height: {ideal: 2160, min: 1080, max: 2160},
+                         frameRate: {ideal: 60, min: 30},
+                         facingMode: 'environment',
+                         aspectRatio: {ideal: 16/9}
+                     }`
+                );
+                console.log("High quality mode activated with file:", targetFile);
+            }
+        });
+    </script>
 </body>
 </html>
