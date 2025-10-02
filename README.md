@@ -21,34 +21,22 @@ HTML, CSS, JavaScript
  - [Облака](https://free-game-assets.itch.io/free-horizontal-game-backgrounds)
 
 ## Архитектура
-ВЕБ-БРАУЗЕР
-├── HTML
-│   ├── <a-scene>
-│   │   ├── <custom-scanning-overlay>
-│   │   └── <a-camera>
-│   └── <photoModal>
-├── CSS (Стили)
-│   ├── Стили для AR-контейнера
-│   └── Стили для UI-элементов (кнопки, текст)
-├── JavaScript (Логика)
-│   └── Наш код (photo-capture.js)
-│       ════════════════════╦═══════════════════
-├── MindAR (Движок AR)      ║
-│   └── Трекер изображения  ║
-│       / Камеры            ║
-╠═══════════════════════════╩═══════════════════
-└── Three.js (3D-графика)
-    └── 3D-модели, анимации, сцены
+**ВЕБ-БРАУЗЕР**
+- **HTML**
+  - `<a-scene>`
+    - `<custom-scanning-overlay>`
+    - `<a-camera>`
+  - `<photoModal>`
+- **CSS** - стили для контейнера и UI
+- **JavaScript** (photo-capture.js) ↔ **MindAR** (трекер/камеры)
+- **Three.js** - 3D графика, модели, сцены
 
-          ↓ (Загружает ресурсы)
+↓ Загружает ресурсы
 
-СЕРВЕР (Хостинг)
-├── index.html
-├── styles.css
-├── photo-capture.js
-├── targets.mind (скомпилированный маркер)
-└── models/ (модели, текстуры)
-
+**СЕРВЕР**
+- HTML/CSS/JS файлы
+- targets.mind (маркер)
+- models/ (3D модели)
 ## Известные ограничение или баги
  - Трекинг изображения с одного ракурса
  - 3D сцены иногда "прыгают"
