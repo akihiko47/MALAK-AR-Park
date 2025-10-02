@@ -11,10 +11,12 @@
 
 ## Использованные технологии
 HTML, CSS, JavaScript
+
 Библиотека дополненной реальности: [MindAR](https://hiukim.github.io/mind-ar-js-doc/)
 
 ## Ресурсы
 Библиотека дополненной реальности: [MindAR](https://hiukim.github.io/mind-ar-js-doc/)
+
 Модели:
  - [Машина волка](https://sketchfab.com/3d-models/volks-wolfs-car-nu-pogodi-62239be23535431aa73736c14e5b7272)
  - [Растения](https://sketchfab.com/3d-models/plants-kit-6c2980169c1e44e499d94a67c1752477)
