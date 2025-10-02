@@ -243,7 +243,7 @@ window.addEventListener("DOMContentLoaded", () => {
     if (scene) {  
         scene.setAttribute(
         "mindar-image",
-        `imageTargetSrc: ./${targetFile}; filterMinCF:0.0001; filterBeta:0.001; warmupTolerance:3; missTolerance:1; uiScanning:#custom-scanning-overlay`
+        `imageTargetSrc: ./${targetFile}; filterMinCF:0.0001; filterBeta:0.001; warmupTolerance:3; missTolerance:1; uiScanning:#custom-scanning-overlay; video: {width: {ideal: 1920}, height: {ideal: 1080}}`
         );
         console.log("Выбран файл:", targetFile);
     }
