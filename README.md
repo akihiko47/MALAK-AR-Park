@@ -19,25 +19,36 @@ HTML, CSS, JavaScript
  - [Машина волка](https://sketchfab.com/3d-models/volks-wolfs-car-nu-pogodi-62239be23535431aa73736c14e5b7272)
  - [Растения](https://sketchfab.com/3d-models/plants-kit-6c2980169c1e44e499d94a67c1752477)
  - [Облака](https://free-game-assets.itch.io/free-horizontal-game-backgrounds)
- - [Нейросеть для генерации моделей](https://app.masterpiecex.com/generate)
 
 ## Архитектура
-**ВЕБ-БРАУЗЕР**
-- **HTML**
-  - `<a-scene>`
-    - `<custom-scanning-overlay>`
-    - `<a-camera>`
-  - `<photoModal>`
-- **CSS** - стили для контейнера и UI
-- **JavaScript** (photo-capture.js) ↔ **MindAR** (трекер/камеры)
-- **Three.js** - 3D графика, модели, сцены
+ВЕБ-БРАУЗЕР
+├── HTML
+│   ├── <a-scene>
+│   │   ├── <custom-scanning-overlay>
+│   │   └── <a-camera>
+│   └── <photoModal>
+├── CSS (Стили)
+│   ├── Стили для AR-контейнера
+│   └── Стили для UI-элементов (кнопки, текст)
+├── JavaScript (Логика)
+│   └── Наш код (photo-capture.js)
+│       ════════════════════╦═══════════════════
+├── MindAR (Движок AR)      ║
+│   └── Трекер изображения  ║
+│       / Камеры            ║
+╠═══════════════════════════╩═══════════════════
+└── Three.js (3D-графика)
+    └── 3D-модели, анимации, сцены
 
-↓ Загружает ресурсы
+          ↓ (Загружает ресурсы)
 
-**СЕРВЕР**
-- HTML/CSS/JS файлы
-- targets.mind (маркер)
-- models/ (3D модели)
+СЕРВЕР (Хостинг)
+├── index.html
+├── styles.css
+├── photo-capture.js
+├── targets.mind (скомпилированный маркер)
+└── models/ (модели, текстуры)
+
 ## Известные ограничение или баги
  - Трекинг изображения с одного ракурса
  - 3D сцены иногда "прыгают"
