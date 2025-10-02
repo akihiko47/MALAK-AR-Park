@@ -21,7 +21,7 @@ HTML, CSS, JavaScript
  - [Облака](https://free-game-assets.itch.io/free-horizontal-game-backgrounds)
 
 ## Архитектура
-**ВЕБ-БРАУЗЕР**
+ВЕБ-БРАУЗЕР:
 - **HTML**
   - `<a-scene>`
     - `<custom-scanning-overlay>`
@@ -33,10 +33,11 @@ HTML, CSS, JavaScript
 
 ↓ Загружает ресурсы
 
-**СЕРВЕР**
+СЕРВЕР:
 - HTML/CSS/JS файлы
 - targets.mind (маркер)
 - models/ (3D модели)
+
 ## Известные ограничение или баги
  - Трекинг изображения с одного ракурса
  - 3D сцены иногда "прыгают"
