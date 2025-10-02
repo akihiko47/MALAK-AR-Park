@@ -7,13 +7,15 @@ class ARPhotoCapture
       this.capturedPhoto = document.getElementById('capturedPhoto');
       this.saveBtn = document.getElementById('saveBtn');
       this.backBtn = document.getElementById('backBtn');
+      this.ticketBtn = document.getElementById('ticketBtn');
       this.scanOverlay = document.getElementById('custom-scanning-overlay');
       
       this.arCanvas = null;
       this.video = null;
-      this.sceneEl = null;
+      this.sceneEl = document.querySelector('a-scene');
       this.isModalOpen = false;
       this.targetEntity = null;
+      this.isTargetFound = false;
 
       this.initElements();
       this.initEvents();
@@ -59,6 +61,7 @@ class ARPhotoCapture
       this.photoBtn.addEventListener('click', () => this.capturePhoto());
       this.saveBtn.addEventListener('click', () => this.savePhoto());
       this.backBtn.addEventListener('click', () => this.goBack());
+      this.ticketBtn.addEventListener('click', () => this.goTicket());
   }
 
   async capturePhoto() 
@@ -216,6 +219,11 @@ class ARPhotoCapture
       }
       console.log('Returned to camera view');
   }
+
+  goTicket() {
+    window.open('https://afisha.yandex.ru/moscow/excursions/places/soiuzmultpark', '_blank');
+    this.goBack();
+    }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
