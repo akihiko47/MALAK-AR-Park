@@ -157,7 +157,7 @@ class ARPhotoCapture
       ctx.drawImage(this.arCanvas, arOffsetX, arOffsetY, arDrawWidth, arDrawHeight);
       console.log('AR content drawn with fit');
 
-      const dataURL = combinedCanvas.toDataURL('image/png');
+      const dataURL = combinedCanvas.toDataURL('image/jpg');
       this.capturedPhoto.src = dataURL;
       console.log('Photo captured successfully');
       
@@ -191,7 +191,7 @@ class ARPhotoCapture
 
       const link = document.createElement('a');
       link.href = this.capturedPhoto.src;
-      link.download = `ar-photo-${new Date().getTime()}.png`;
+      link.download = `ar-photo-${new Date().getTime()}.jpg`;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
