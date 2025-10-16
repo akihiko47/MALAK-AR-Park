@@ -157,7 +157,7 @@ class ARPhotoCapture
       ctx.drawImage(this.arCanvas, arOffsetX, arOffsetY, arDrawWidth, arDrawHeight);
       console.log('AR content drawn with fit');
 
-      const dataURL = combinedCanvas.toDataURL('image/jpg');
+      const dataURL = combinedCanvas.toDataURL('image/jpeg', 1.0);
       this.capturedPhoto.src = dataURL;
       console.log('Photo captured successfully');
       

@@ -60,7 +60,7 @@ body.light-theme .theme-toggle {
 
 /* Hero */
 .hero {
-  min-height: 100vh;
+  min-height: 75vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -71,7 +71,7 @@ body.light-theme .theme-toggle {
 }
 
 .hero h1 { font-size: 3rem; margin-bottom: 8px; }
-.hero p { max-width: 800px; font-size: 1.15rem; margin-bottom: 8px; }
+.hero p { max-width: 800px; font-size: 1.15rem; margin-bottom: 25px; }
 
 #openARButton {
   display: inline-block;
@@ -92,7 +92,7 @@ body.light-theme .theme-toggle {
 
 /* About */
 .about {
-  padding: 60px 20px;
+  padding: 0px 20px;
   max-width: 1400px;
   margin: auto;
   text-align: center;
@@ -177,8 +177,8 @@ body.light-theme .theme-toggle {
 
 /* Responsive */
 @media (max-width: 768px) {
-  .hero h1 { font-size: 2rem; }
-  .hero p { font-size: 1rem; }
-  .about h2 { font-size: 1.6rem; }
-  #openARButton { font-size: 18px; padding: 12px 28px; }
+  .hero h1 { font-size: 2rem; margin-bottom: 0px;}
+  .hero p { font-size: 1rem; margin-bottom: 10px;}
+  .about h2 { font-size: 1.6rem;}
+  #openARButton { font-size: 18px; padding: 12px 28px; margin-bottom: 0px;}
 }
